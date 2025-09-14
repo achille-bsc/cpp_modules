@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 08:34:02 by abosc             #+#    #+#             */
-/*   Updated: 2025/06/29 03:34:42 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/14 18:27:19 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ Zombie::Zombie(std::string name) : name(name)
 
 Zombie::~Zombie(void)
 {
-    std::cout << this->name << " viens de se faire tuer" << std::endl;
+    std::cout << this->name << ": Viens de se faire tuer" << std::endl;
 }
