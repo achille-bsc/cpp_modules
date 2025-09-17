@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 08:34:02 by abosc             #+#    #+#             */
-/*   Updated: 2025/06/29 03:36:49 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/15 15:48:27 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ Zombie::Zombie()
 
 Zombie::~Zombie(void)
 {
-    std::cout << this->name << " Viens de se faire tuer" << std::endl;
+    std::cout << this->name << ": is dead for a second time" << std::endl;
 }

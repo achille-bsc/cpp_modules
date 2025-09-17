@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 13:32:41 by abosc             #+#    #+#             */
-/*   Updated: 2025/07/16 15:12:13 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/17 13:29:14 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	Harl	theUltimeHarl;
+	Harl	theUlimeHarl;
 	
 	if (argc < 2)
 	{
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	
-	theUltimeHarl.complain(argv[1]);
+	theUlimeHarl.complain(argv[1]);
 
-	return (1);
+	return (0);
 }

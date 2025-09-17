@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:36:11 by abosc             #+#    #+#             */
-/*   Updated: 2025/07/16 15:15:14 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/17 13:26:36 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #define	ERROR_TOO_FEW_ARGS	"\033[31mError: You need to enter at least 1 argument\033[0m"
 #define	ERROR_TOO_MANY_ARGS	"\033[31mError: You need to enter at most 1 argument\033[0m"
 
-#define	USAGE_EXAMPLE		"\033[36mUsage:\033[0m                  ./harl DEBUG"
-#define	ARGS_AVAILABLE		"\033[36mAvailable arguments:\033[0m    DEBUG, INFO, WARNING, ERROR"
+#define	USAGE_EXAMPLE		"\033[36mUsage example:                 available arguments:\033[0m"
+#define	ARGS_AVAILABLE		"./harl DEBUG                   [DEBUG, INFO, WARNING, ERROR]"
 
 #define	LEVELS_NUMBER		4

@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 08:33:49 by abosc             #+#    #+#             */
-/*   Updated: 2025/06/29 03:28:06 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/15 15:42:32 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 Zombie  *zombieHorde(int n, std::string name)
 {
-    int		i = -1;
+    int		i = 0;
 	Zombie	*horde = new Zombie[n];
 
-	while (++i < n) {
+	while (i < n)
+	{
 		horde[i].setName(name);
-		horde[i].announce();
+		i++;
 	}
 	return (horde);
 }

@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 03:38:25 by abosc             #+#    #+#             */
-/*   Updated: 2025/06/29 03:56:24 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/17 12:22:06 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ int main(void)
     std::cout << "string's value : " << string << std::endl;
     std::cout << "string's ptr adress : " << *stringPTR << std::endl;
     std::cout << "string's ref adress : " << stringREF << std::endl;
-    
 }
