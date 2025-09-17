@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:40:59 by abosc             #+#    #+#             */
-/*   Updated: 2025/07/24 10:46:56 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:13:58 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ Fixed& Fixed::operator=(const Fixed &other)
 	return (*this);
 }
 
-std::ostream    &operator<<(std::ostream &o, Fixed const &fixed)
+std::ostream& operator<<(std::ostream &os, Fixed const &fixed)
 {
-	o << fixed.toFloat();
-	return (o);
+	os << fixed.toFloat();
+	return (os);
 }

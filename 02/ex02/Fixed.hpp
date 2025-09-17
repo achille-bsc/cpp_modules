@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:41:02 by abosc             #+#    #+#             */
-/*   Updated: 2025/07/24 11:49:00 by abosc            ###   ########.fr       */
+/*   Updated: 2025/09/17 21:26:24 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed
 		Fixed				();
 		Fixed				(const int		fixedPoint);
 		Fixed				(const float	floatingPoint);
-		Fixed				(const Fixed& other);
+		Fixed				(const Fixed&	other);
 		~Fixed				();
 		Fixed&				operator=	(const Fixed& other);
 		bool				operator>	(const Fixed& other);
@@ -41,12 +41,12 @@ class Fixed
 		Fixed				operator--	();
 		Fixed				operator++	(int);
 		Fixed				operator--	(int);
-		float				toFloat(void)	const;
-		int					toInt(void)		const;
-		static Fixed				min(Fixed& a, Fixed& b);
-		static Fixed				min(const Fixed& a, const Fixed& b);
-		static Fixed				max(Fixed& a, Fixed& b);
-		static Fixed				max(const Fixed& a, const Fixed& b);
+		float				toFloat		(void)	const;
+		int					toInt		(void)	const;
+		static Fixed		min			(Fixed& a, Fixed& b);
+		static Fixed		min			(const Fixed& a, const Fixed& b);
+		static Fixed		max			(Fixed& a, Fixed& b);
+		static Fixed		max			(const Fixed& a, const Fixed& b);
 };
 
 std::ostream    &operator<<(std::ostream &os, Fixed const &fixed);
