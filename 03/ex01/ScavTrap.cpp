@@ -3,55 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 13:29:27 by abosc             #+#    #+#             */
-/*   Updated: 2025/07/29 15:45:11 by abosc            ###   ########.fr       */
+/*   Created: 2025/09/26 14:44:56 by abosc             #+#    #+#             */
+/*   Updated: 2025/09/26 15:24:19 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 12:38:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/07/25 14:43:46 by abosc            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-//////////////////////////////////
-//                              //
-//            HEADER            //
-//                              //
-//////////////////////////////////
 
 #include "ScavTrap.hpp"
-/* Your Code Here */
 
-
-//////////////////////////////////
-//                              //
-//         CONSTRUCTORS         //
-//                              //
-//////////////////////////////////
-
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap(): ClapTrap("(none)"), guardingGate(false)
 {
-	this->hitPoints		=	100		;
-	this->energiePoints	=	50		;
-	this->attackDamage	=	20		;
-	this->guardingGate	=	false	;
+	this->hitPoints		=	100;
+	this->energyPoints	=	50;
+	this->attackDamage	=	20;
+	std::cout << "ScavTrap " << this->name << " have been created" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name), guardingGate(false)
 {
-	this->hitPoints		=	100		;
-	this->energiePoints	=	50		;
-	this->attackDamage	=	20		;
-	this->guardingGate	=	false	;
+	this->hitPoints		=	100;
+	this->energyPoints	=	50;
+	this->attackDamage	=	20;
+	std::cout << "ScavTrap " << this->name << " have been created" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
@@ -62,32 +36,20 @@ ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap Deconstructor for " << this->name << " called" << std::endl;
+	std::cout << "ScavTrap " << this->name << " have been destroyed" << std::endl;
 }
-
-//////////////////////////////////
-//                              //
-//           METHODS            //
-//                              //
-//////////////////////////////////
 
 void	ScavTrap::attack(const std::string &target)
 {
-	if (this->energiePoints > 0 && this->hitPoints > 0)
+	if (this->energyPoints > 0 && this->hitPoints > 0)
 	{
-		std::cout << "ScavTrap " << this->name << " attacks "
-			<< target << ", causing " << this->attackDamage << " points of damage!"
-			<< std::endl;
-		this->energiePoints--;
+		std::cout << "ScavTrap " << this->name << " is attacking " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+		this->energyPoints--;
 	}
-	else if (this->energiePoints == 0)
-		std::cout << "\033[31mScavTrap " << this->name << " is not able to attack "
-			<< target << ", because he has no energy points left.\033[0m"
-			<< std::endl;
+	else if (this->energyPoints == 0)
+		std::cout << "ScavTrap " << this->name << " is not able to attack " << target << ", because he has no energy points left." << std::endl;
 	else
-		std::cout << "\033[31mScavTrap " << this->name << " is not able to attack "
-			<< target << ", because he has not enough hit points.\033[0m"
-			<< std::endl;
+		std::cout << "ScavTrap " << this->name << " is not able to attack " << target << ", because he's dead" << std::endl;
 }
 
 void ScavTrap::guardGate(void)
@@ -98,23 +60,18 @@ void ScavTrap::guardGate(void)
 		std::cout << this->name << " is now in Gate keeper mode" << std::endl;
 	}
 	else
-		std::cout << "\033[33mScavTrap " << this->name << " is already guarding the gate.\033[0m" << std::endl;
+		std::cout << "ScavTrap " << this->name << " is already guarding the gate." << std::endl;
 }
-
-//////////////////////////////////
-//                              //
-//          OVERLOADS           //
-//                              //
-//////////////////////////////////
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other)
 	{
-		this->name			= other.name			;
-		this->hitPoints		= other.hitPoints		;
-		this->energiePoints	= other.energiePoints	;
-		this->attackDamage	= other.attackDamage	;
+		this->name			= other.name;
+		this->hitPoints		= other.hitPoints;
+		this->energyPoints	= other.energyPoints;
+		this->attackDamage	= other.attackDamage;
 	}
+	std::cout << "ScavTrap Copied by operator" << std::endl;
 	return (*this);
 }

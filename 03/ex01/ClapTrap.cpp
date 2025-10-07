@@ -3,137 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42lehavre.fr>         +#+  +:+       +#+        */
+/*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 12:38:23 by abosc             #+#    #+#             */
-/*   Updated: 2025/07/26 15:58:14 by abosc            ###   ########.fr       */
+/*   Created: 2025/09/26 14:40:56 by abosc             #+#    #+#             */
+/*   Updated: 2025/09/26 15:18:54 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//////////////////////////////////
-//                              //
-//            HEADER            //
-//                              //
-//////////////////////////////////
-
 #include "ClapTrap.hpp"
-/* Your Code Here */
 
-
-//////////////////////////////////
-//                              //
-//         CONSTRUCTORS         //
-//                              //
-//////////////////////////////////
-
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : name("(none)"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	this->name = "(none)";
-	this->hitPoints		= 10;
-	this->energiePoints	= 10;
-	this->attackDamage	= 0	;
+	std::cout << "ClapTrap " << this->name << " have been created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name): name(name)
+ClapTrap::ClapTrap(std::string name): name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	this->hitPoints		= 10;
-	this->energiePoints	= 10;
-	this->attackDamage	= 0	;
+	std::cout << "ClapTrap " << this->name << " have been created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
 	*this = other;
+	std::cout << "ClapTrap " << this->name << " have been created by copy" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
+	std::cout << "ClapTrap " << this->name << " have been destroyed" << std::endl;
 }
-
-
-
-//////////////////////////////////
-//                              //
-//            GETTER            //
-//                              //
-//////////////////////////////////
-
-std::string	ClapTrap::getName			(void)
-{
-	return (this->name);
-}
-
-int			ClapTrap::getHitPoints		(void)
-{
-	return (this->hitPoints);
-}
-
-int			ClapTrap::getEnergiePoints	(void)
-{
-	return (this->energiePoints);
-}
-
-int			ClapTrap::getAttackDamage	(void)
-{
-	return (this->attackDamage);
-}
-
-
-
-//////////////////////////////////
-//                              //
-//            SETTER            //
-//                              //
-//////////////////////////////////
-
-void	ClapTrap::setName			(std::string name)
-{
-	this->name = name;
-}
-
-void	ClapTrap::setHitPoints		(int hitPoints)
-{
-	this->name = hitPoints;
-}
-
-void	ClapTrap::setEnergiePoints	(int energiePoints)
-{
-	this->name = energiePoints;
-}
-
-void	ClapTrap::setAttackDamage	(int attackDamage)
-{
-	this->name = attackDamage;
-}
-
-
-//////////////////////////////////
-//                              //
-//           METHODS            //
-//                              //
-//////////////////////////////////
 
 void ClapTrap::attack(const std::string& target)
 {
-	this->energiePoints--;
-	std::cout << "ClapTrap " << this->getName() << " attack " << target << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
+	if (this->energyPoints > 0 && this->hitPoints > 0)
+	{
+		this->energyPoints--;
+		std::cout << "ClapTrap " << this->name << " attack " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+	}
+	else if (this->energyPoints == 0)
+	{
+		std::cout << "ClapTrap " << this->name << " can't attack " << target << ", because it doesn't have enough energy points!" << std::endl;
+	}
+	else
+	{
+		std::cout << "ClapTrap " << this->name << " can't attack " << target << ", because he's dead!" << std::endl;
+	}
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->hitPoints -= amount;
+	if (this->hitPoints == 0)
+	{
+		std::cout << this->name << " can't take damage... because he is dead" << std::endl;
+	}
+	else if (this->hitPoints > amount)
+	{
+		this->hitPoints -= amount;
+		std::cout << this->name << " just took " << amount << " damages" << std::endl;
+	}	
+	else if (this->hitPoints <= amount)
+	{
+		this->hitPoints = 0;
+		std::cout << this->name << " just died" << std::endl;	
+	}
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	this->hitPoints += amount;
-	this->energiePoints--;
+	if (this->hitPoints == 0)
+	{
+		std::cout << this->name << " can't be repaired because of he's dead" << std::endl;
+	}
+	else
+	{
+		this->hitPoints += amount;
+		this->energyPoints--;
+		std::cout << this->name << " have been repaired. (+" << amount << ") He has now " << this->hitPoints << " hit points" << std::endl;
+	}
 }
-
-
-//////////////////////////////////
-//                              //
-//          OVERLOADS           //
-//                              //
-//////////////////////////////////
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
@@ -141,8 +86,9 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	{
 		this->name			= other.name;
 		this->hitPoints		= other.hitPoints;
-		this->energiePoints	= other.energiePoints;
+		this->energyPoints	= other.energyPoints;
 		this->attackDamage	= other.attackDamage;
 	}
+	std::cout << "Clap Trap Copied by operator" << std::endl;
 	return (*this);
 }
