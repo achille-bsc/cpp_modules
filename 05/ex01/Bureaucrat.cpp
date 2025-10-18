@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2025/10/16 14:24:30 by abosc            ###   ########.fr       */
+/*   Updated: 2025/10/17 17:36:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 ///////////
 std::string	Bureaucrat::getName() const
 {
-	return (this->name);	
+	return (this->name);
 }
 
 int	Bureaucrat::getGrade() const
@@ -59,7 +59,7 @@ void	Bureaucrat::gradeIncrement()
 	if (this->grade == 1)
 		throw Bureaucrat::GradeTooHighException();
 	else
-		this->grade--;	
+		this->grade--;
 }
 
 void	Bureaucrat::gradeDecrement()
