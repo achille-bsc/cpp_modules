@@ -6,11 +6,12 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2025/10/27 05:41:40 by abosc            ###   ########.fr       */
+/*   Updated: 2025/10/30 08:49:49 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 ////////////////
 //Constructors//
@@ -83,6 +84,12 @@ void	Bureaucrat::gradeDecrement()
 ///////////////
 // OVERLOADS //
 ///////////////
+std::ostream&		operator<<(std::ostream& os, const Bureaucrat& obj)
+{
+	os << obj.getName() << ",  bureaucrat grade " << obj.getGrade();
+	return (os);
+}
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this == &other)
@@ -90,8 +97,23 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	this->grade = other.grade;
 }
 
-std::ostream&		operator<<(std::ostream& os, const Bureaucrat& obj)
+/////////////
+//FUNCTIONS//
+/////////////
+void Bureaucrat::signForm(AForm& form)
 {
-	os << obj.getName() << ",  bureaucrat grade " << obj.getGrade();
-	return (os);
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(const GradeTooHighException& e)
+	{
+		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because the grade of the bureaucrat is too High" << std::endl;
+	}
+	catch(const GradeTooLowException& e)
+	{
+		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because the grade of the bureaucrat is too low" << std::endl;
+	}
+	
 }
