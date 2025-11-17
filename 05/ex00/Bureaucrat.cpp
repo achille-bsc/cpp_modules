@@ -17,19 +17,12 @@
 ////////////////
 Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 {
-	try
-	{
-		if (grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else if (grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else
-			grade = _grade;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	if (_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		grade = _grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : grade(other.grade), name(other.name)

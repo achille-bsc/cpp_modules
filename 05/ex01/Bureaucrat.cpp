@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2025/10/30 08:49:49 by abosc            ###   ########.fr       */
+/*   Updated: 2025/11/17 14:07:15 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Bureaucrat::gradeIncrement()
 	if (this->grade == 1)
 		throw Bureaucrat::GradeTooHighException();
 	else
-		this->grade--;	
+		this->grade--;
 }
 
 void	Bureaucrat::gradeDecrement()

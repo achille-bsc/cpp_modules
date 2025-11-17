@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:40 by abosc             #+#    #+#             */
-/*   Updated: 2025/10/30 08:49:49 by abosc            ###   ########.fr       */
+/*   Updated: 2025/11/17 14:09:27 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ class AForm
 			public:
 				virtual const char* what() const throw();
 		};
-		
-		
 };
 
 std::ostream&		operator<<(std::ostream& os, const AForm& obj);
