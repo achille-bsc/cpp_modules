@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:31:47 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 14:41:32 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/25 15:09:21 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     return *this;
 }
 
-void PresidentialPardonForm::execute()
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
 	if (!this->getIsSigned())
 		throw (FormNotSigned());

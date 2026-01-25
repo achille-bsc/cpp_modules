@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:08:43 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 14:22:29 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/25 15:09:46 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm			(const RobotomyRequestForm& other);
 		RobotomyRequestForm&			operator=(const RobotomyRequestForm& other);
 		~RobotomyRequestForm			();
-		void execute					();
+		void execute					(const Bureaucrat& executor) const;
 
 		// class GradeTooHighException : public std::exception
 		// {

@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:24:53 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 14:43:13 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/25 15:10:04 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
     return *this;
 }
 
-void RobotomyRequestForm::execute()
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
 	if (!this->getIsSigned())
 		throw (FormNotSigned());

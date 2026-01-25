@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 12:30:36 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 14:43:16 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/25 15:10:23 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return *this;
 }
 
-void ShrubberyCreationForm::execute()
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
 	if (!this->getIsSigned())
 		throw (FormNotSigned());
