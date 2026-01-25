@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/23 07:51:39 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/24 13:33:57 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,9 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 /////////////
 //FUNCTIONS//
 /////////////
-void Bureaucrat::signForm(AForm& form)
+void Bureaucrat::signForm(Form& form)
 {
+
 	try
 	{
 		if (form.getIsSigned())
@@ -119,6 +120,5 @@ void Bureaucrat::signForm(AForm& form)
 	catch(const GradeTooLowException& e)
 	{
 		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because: " << e.what() << std::endl;
-	}
-	
+	}	
 }

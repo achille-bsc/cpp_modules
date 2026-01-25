@@ -6,14 +6,15 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 18:25:20 by abosc             #+#    #+#             */
-/*   Updated: 2025/11/17 14:08:04 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/24 13:23:24 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
 #ifndef BUREAUCRAT_H
 # define BUREAUCRAT_H
+
+#include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -29,7 +30,7 @@ class Bureaucrat
 		int					getGrade() const;
 		void				gradeIncrement();
 		void				gradeDecrement();
-		void				signForm(AForm& form);
+		void				signForm(Form& form);
 
 		class GradeTooHighException : public std::exception
 		{

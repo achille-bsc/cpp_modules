@@ -6,18 +6,18 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:40 by abosc             #+#    #+#             */
-/*   Updated: 2025/11/17 14:09:27 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/24 13:23:39 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FORM_H
+# define FORM_H
 
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
 
-#ifndef FORM_H
-# define FORM_H
-
-class AForm
+class Form
 {
 	private:
 		const std::string	_name;
@@ -29,11 +29,11 @@ class AForm
 		int				getGradeToSign()	const;
 		int				getGradeToExec()	const;
 		bool			getIsSigned()		const;
-		void			beSigned(Bureaucrat bureacrat);
-		AForm			(std::string name, int grade_to_sign, int grade_to_exec);
-		AForm			(const AForm& other);
-		AForm&			operator=(const AForm& other);
-		~AForm			();
+		void			beSigned(Bureaucrat& bureacrat);
+		Form			(std::string name, int grade_to_sign, int grade_to_exec);
+		Form			(const Form& other);
+		Form&			operator=(const Form& other);
+		~Form			();
 
 		class GradeTooHighException : public std::exception
 		{
@@ -47,7 +47,7 @@ class AForm
 		};
 };
 
-std::ostream&		operator<<(std::ostream& os, const AForm& obj);
+std::ostream&		operator<<(std::ostream& os, const Form& obj);
 
 
 #endif
