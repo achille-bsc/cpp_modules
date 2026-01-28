@@ -12,6 +12,9 @@
 
 #include "AForm.hpp"
 
+AForm::AForm() : _name("default"), _grade_to_sign(1), _grade_to_exec(1), _is_signed(true)
+{}
+
 AForm::AForm(std::string name, int grade_to_sign, int grade_to_exec) : _name(name), _grade_to_sign(grade_to_sign), _grade_to_exec(grade_to_exec), _is_signed(false)
 {
 	try

@@ -31,6 +31,7 @@ class AForm
 		int						getGradeToExec()				const;
 		bool					getIsSigned()					const;
 		void					beSigned(Bureaucrat& bureaucrat);
+		AForm					();
 		AForm					(	std::string name,
 									int grade_to_sign,
 									int grade_to_exec
