@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 14:39:31 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	Bureaucrat::getGrade() const
 	return (this->grade);
 }
 
-void	Bureaucrat::gradeIncrement()
+void	Bureaucrat::gradePromotion()
 {
 	if (this->grade == 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -73,7 +73,7 @@ void	Bureaucrat::gradeIncrement()
 		this->grade--;	
 }
 
-void	Bureaucrat::gradeDecrement()
+void	Bureaucrat::gradeDemotion()
 {
 	if (this->grade == 150)
 		throw Bureaucrat::GradeTooLowException();

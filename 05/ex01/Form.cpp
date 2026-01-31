@@ -6,11 +6,16 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:37 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/24 13:22:56 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 17:54:05 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+Form::Form(): _name("Random Form"), _grade_to_sign(150), _grade_to_exec(150), _is_signed(false)
+{
+	std::cout << "Default Constructor Called\n";
+}
 
 Form::Form(std::string name, int grade_to_sign, int grade_to_exec) : _name(name), _grade_to_exec(grade_to_exec), _grade_to_sign(grade_to_sign)
 {
@@ -21,18 +26,22 @@ Form::Form(std::string name, int grade_to_sign, int grade_to_exec) : _name(name)
 		else if (grade_to_sign < 1 || grade_to_exec < 1)
 			throw Form::GradeTooHighException();
 	}
-	catch(std::exception e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	std::cout << "Name, GradeToSign & GradeToExec Constructor Called\n";
 }
 
 Form::Form(const Form &other) : _name(_name), _grade_to_sign(_grade_to_sign), _grade_to_exec(_grade_to_exec)
-{}
+{
+	std::cout << "Copy Constructor Called\n";
+}
 
 Form::~Form()
-{}
+{
+	std::cout << "Destructor Called";
+}
 
 //////////////
 //EXCEPTIONS//

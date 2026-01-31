@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 18:25:20 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 14:35:44 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Bureaucrat
 		~Bureaucrat			();
 		std::string			getName() const;
 		int					getGrade() const;
-		void				gradeIncrement();
-		void				gradeDecrement();
+		void				gradePromotion();
+		void				gradeDemotion();
 		void				signForm(AForm& form);
 		void				executeForm(AForm const & form) const;
 

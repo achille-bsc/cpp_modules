@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:40 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/24 13:23:39 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 17:46:21 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Form
 		int				getGradeToExec()	const;
 		bool			getIsSigned()		const;
 		void			beSigned(Bureaucrat& bureacrat);
+		Form			();
 		Form			(std::string name, int grade_to_sign, int grade_to_exec);
 		Form			(const Form& other);
 		Form&			operator=(const Form& other);

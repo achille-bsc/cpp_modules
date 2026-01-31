@@ -6,16 +6,17 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:08:43 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 15:09:41 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 18:04:38 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+#ifndef PRESIDENTIALPARDONFORM_H
+# define PRESIDENTIALPARDONFORM_H
 
 #include "AForm.hpp"
 #include <iostream>
 #include <fstream>
-
-#ifndef PRESIDENTIALPARDONFORM_H
-# define PRESIDENTIALPARDONFORM_H
 
 class PresidentialPardonForm : public AForm
 {
@@ -23,11 +24,12 @@ class PresidentialPardonForm : public AForm
 		std::string target;
     
 	public:
+		PresidentialPardonForm			();
 		PresidentialPardonForm			(std::string target);
 		PresidentialPardonForm			(const PresidentialPardonForm& other);
 		PresidentialPardonForm&			operator=(const PresidentialPardonForm& other);
 		~PresidentialPardonForm			();
-		void execute					(const Bureaucrat& executor) const;
+		void exec						(void) const;
 
 		// class GradeTooHighException : public std::exception
 		// {

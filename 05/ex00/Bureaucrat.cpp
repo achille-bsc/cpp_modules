@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/23 07:40:56 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,20 @@ Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 		grade = _grade;
 }
 
+Bureaucrat::Bureaucrat(): name("random"), grade(150)
+{
+	std::cout << "Default constructor called" << std::endl;
+}
+
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : grade(other.grade), name(other.name)
-{}
+{
+	std::cout << "Copy constructor called" << std::endl;
+}
 
 Bureaucrat::~Bureaucrat()
-{}
+{
+	std::cout << "Destructor called" << std::endl;
+}
 
 //////////////
 //EXCEPTIONS//
@@ -57,7 +66,7 @@ int	Bureaucrat::getGrade() const
 	return (this->grade);
 }
 
-void	Bureaucrat::gradeIncrement()
+void	Bureaucrat::gradePromotion()
 {
 	if (this->grade == 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -65,7 +74,7 @@ void	Bureaucrat::gradeIncrement()
 		this->grade--;	
 }
 
-void	Bureaucrat::gradeDecrement()
+void	Bureaucrat::gradeDemotion()
 {
 	if (this->grade == 150)
 		throw Bureaucrat::GradeTooLowException();

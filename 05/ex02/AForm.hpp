@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:40 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 14:41:10 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 17:57:33 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ class AForm
 		const int			_grade_to_sign;
 		const int			_grade_to_exec;		
 		bool 				_is_signed;
+
+	protected:
+		virtual void		exec(void) const = 0;
+
 	public:
 		std::string				getName()						const;
 		int						getGradeToSign()				const;
@@ -39,7 +43,7 @@ class AForm
 		AForm					(const AForm& other);
 		AForm&					operator=(const AForm& other);
 		virtual ~AForm			() = 0;
-		virtual void			execute(const Bureaucrat& executor) const = 0;
+		void					execute(const Bureaucrat& executor) const;
 
 		class GradeTooHighException : public std::exception
 		{

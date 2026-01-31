@@ -6,16 +6,17 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 14:08:43 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 15:09:46 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 18:15:44 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+#ifndef ROBOTOMYREQUESTFORM_H
+# define ROBOTOMYREQUESTFORM_H
 
 #include "AForm.hpp"
 #include <iostream>
 #include <fstream>
-
-#ifndef ROBOTOMYREQUESTFORM_H
-# define ROBOTOMYREQUESTFORM_H
 
 class RobotomyRequestForm : public AForm
 {
@@ -23,23 +24,12 @@ class RobotomyRequestForm : public AForm
 		std::string target;
     
 	public:
-		RobotomyRequestForm			(std::string target);
-		RobotomyRequestForm			(const RobotomyRequestForm& other);
-		RobotomyRequestForm&			operator=(const RobotomyRequestForm& other);
+		RobotomyRequestForm				();
+		RobotomyRequestForm				(std::string target);
+		RobotomyRequestForm				(const RobotomyRequestForm& other);
 		~RobotomyRequestForm			();
-		void execute					(const Bureaucrat& executor) const;
-
-		// class GradeTooHighException : public std::exception
-		// {
-		// 	public:
-		// 		virtual const char* what() const throw();
-		// };
-		// class GradeTooLowException : public std::exception
-		// {
-		// 	public:
-		// 		virtual const char* what() const throw();
-		// };
-		
+		void exec						(void) const;
+		RobotomyRequestForm&			operator=(const RobotomyRequestForm& other);
 };
 
 std::ostream&		operator<<(std::ostream& os, const RobotomyRequestForm& obj);

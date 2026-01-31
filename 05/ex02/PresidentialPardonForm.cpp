@@ -6,34 +6,50 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:31:47 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 15:09:21 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 18:10:48 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
+PresidentialPardonForm::PresidentialPardonForm() 
+	:	AForm("PresidentialPardonForm", 25, 5),
+		target("Random People")
+{
+	std::cout << "PresidentialPardonForm Default Constructor Called\n\r";
+}
+
 PresidentialPardonForm::PresidentialPardonForm(std::string target): 
 	AForm("PresidentialPardonForm", 25, 5),
 	target(target)
-{}
+{
+	std::cout << "PresidentialPardonForm Target Constructor Called\n\r";
+}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other):
 	AForm("PresidentialPardonForm", 25, 5),
 	target(other.target)
-{}
+{
+	std::cout << "PresidentialPardonForm Copy Constructor Called\n\r";
+}
 
 PresidentialPardonForm::~PresidentialPardonForm()
-{}
+{
+		std::cout << "PresidentialPardonForm Destructor Called\n\r";
+}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
-    target = other.target;
-    return *this;
+	std::cout << "PresidentialPardonForm Assignement Overload Called\n\r";
+    if (this != &other)
+	{
+		this->AForm::operator=(other);
+		this->target = other.target;
+	}
+    return (*this);
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const
+void PresidentialPardonForm::exec() const
 {
-	if (!this->getIsSigned())
-		throw (FormNotSigned());
     std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

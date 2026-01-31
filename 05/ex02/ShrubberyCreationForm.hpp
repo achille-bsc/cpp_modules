@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 07:54:21 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/25 15:10:27 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 18:18:53 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ class ShrubberyCreationForm : public AForm
 		std::string target;
     
 	public:
+		ShrubberyCreationForm			();
 		ShrubberyCreationForm			(std::string target);
 		ShrubberyCreationForm			(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm&			operator=(const ShrubberyCreationForm& other);
 		~ShrubberyCreationForm			();
-		void execute					(const Bureaucrat& executor) const;
+		void exec						() const;
 
 		// class GradeTooHighException : public std::exception
 		// {

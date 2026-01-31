@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:52 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/23 07:41:49 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(void)
 	
 	try
 	{
-		b1.gradeIncrement();
+		b1.gradePromotion();
 	}
 	catch(const std::exception& e)
 	{
@@ -48,7 +48,7 @@ int main(void)
 
 	try
 	{
-		b3.gradeDecrement();
+		b3.gradeDemotion();
 	}
 	catch(const std::exception& e)
 	{
