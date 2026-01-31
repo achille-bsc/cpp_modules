@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 19:44:39 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,22 @@ Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		grade = _grade;
+	std::cout << "Name & Grade Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(): name("random"), grade(150)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default Bureaucrat constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : grade(other.grade), name(other.name)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 //////////////
@@ -87,9 +88,11 @@ void	Bureaucrat::gradeDemotion()
 ///////////////
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	if (this == &other)
-		return (*this);
-	this->grade = other.grade;
+	if (this != &other)
+	{
+		this->grade = other.grade;
+	}
+	return (*this);
 }
 
 std::ostream&		operator<<(std::ostream& os, const Bureaucrat& obj)

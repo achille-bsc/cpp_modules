@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:37 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 18:02:24 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 19:18:05 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ AForm::AForm(std::string name, int grade_to_sign, int grade_to_exec) : _name(nam
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n\r';
+		std::cerr << e.what() << "\n\r";
 	}
 	std::cout << "Name & Grades constructor Called\n\r";
 }
@@ -36,6 +36,16 @@ AForm::AForm(std::string name, int grade_to_sign, int grade_to_exec) : _name(nam
 AForm::AForm(const AForm &other) : _name(other._name), _grade_to_sign(other._grade_to_sign), _grade_to_exec(other._grade_to_exec), _is_signed(other._is_signed)
 {
 	std::cout << "Copy Constructor Called\n\r";
+}
+
+AForm& AForm::operator=(const AForm& other)
+{
+	std::cout << "Assignment Operator Called\n\r";
+	if (this != &other)
+	{
+		this->_is_signed = other._is_signed;
+	}
+	return (*this);
 }
 
 AForm::~AForm()

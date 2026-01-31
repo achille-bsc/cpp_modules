@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 19:46:05 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@
 ////////////////
 //Constructors//
 ////////////////
+
+Bureaucrat::Bureaucrat(): name("random"), grade(150)
+{
+	std::cout << "Default Bureaucrat constructor called" << std::endl;
+}
+
 Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 {
 	try
 	{
-		if (grade > 150)
+		if (_grade > 150)
 			throw Bureaucrat::GradeTooLowException();
-		else if (grade < 1)
+		else if (_grade < 1)
 			throw Bureaucrat::GradeTooHighException();
 		else
 			grade = _grade;
@@ -31,13 +37,18 @@ Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << "Name & Grade Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
-{}
+{
+	std::cout << "Copy Bureaucrat constructor called" << std::endl;
+}
 
 Bureaucrat::~Bureaucrat()
-{}
+{
+	std::cout << "Bureaucrat destructor called" << std::endl;
+}
 
 //////////////
 //EXCEPTIONS//
@@ -114,14 +125,10 @@ void Bureaucrat::signForm(AForm& form)
 		form.beSigned(*this);
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
-	catch(const GradeTooHighException& e)
+	catch(std::exception& e)
 	{
 		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because: " << e.what() << std::endl;
 	}
-	catch(const GradeTooLowException& e)
-	{
-		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because: " << e.what() << std::endl;
-	}	
 }
 
 void Bureaucrat::executeForm(const AForm& form) const
@@ -129,8 +136,9 @@ void Bureaucrat::executeForm(const AForm& form) const
 	try
 	{
 		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}

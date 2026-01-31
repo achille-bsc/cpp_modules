@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:40 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 17:57:33 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 19:20:08 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class AForm
 								);
 		AForm					(const AForm& other);
 		AForm&					operator=(const AForm& other);
-		virtual ~AForm			() = 0;
+		virtual ~AForm();
 		void					execute(const Bureaucrat& executor) const;
 
 		class GradeTooHighException : public std::exception

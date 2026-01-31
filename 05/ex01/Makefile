@@ -4,7 +4,7 @@ NAME = Form
 
 OBJS_DIR = obj
 
-SRCS =	main.cpp Bureaucrat.cpp
+SRCS =	main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)

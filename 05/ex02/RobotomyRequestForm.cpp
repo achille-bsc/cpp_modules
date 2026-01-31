@@ -6,11 +6,12 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 14:24:53 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 18:18:11 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 19:12:54 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm()
 	:	AForm("RobotomyRequestForm", 72, 45),

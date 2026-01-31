@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 18:25:20 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 19:45:58 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Bureaucrat
 		const std::string	name;
 		int					grade;
 	public:
+		Bureaucrat			();
 		Bureaucrat			(std::string name, int grade);
 		Bureaucrat			(const Bureaucrat& other);
 		Bureaucrat&			operator=(const Bureaucrat& other);

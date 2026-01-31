@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 05:26:40 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 17:46:21 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 18:57:33 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <iostream>
 #include <string>
-#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -29,7 +30,7 @@ class Form
 		int				getGradeToSign()	const;
 		int				getGradeToExec()	const;
 		bool			getIsSigned()		const;
-		void			beSigned(Bureaucrat& bureacrat);
+		void			beSigned(Bureaucrat& bureaucrat);
 		Form			();
 		Form			(std::string name, int grade_to_sign, int grade_to_exec);
 		Form			(const Form& other);

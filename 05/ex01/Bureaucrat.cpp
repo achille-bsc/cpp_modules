@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:09:49 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 17:42:37 by abosc            ###   ########.fr       */
+/*   Updated: 2026/01/31 18:58:56 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Bureaucrat::Bureaucrat(std::string name, int _grade) : name(name)
 	std::cout << "Name & Grande Constructor Called\n\r";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : grade(other.grade), name(other.name)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
 {
 	std::cout << "Copy Constructor Called\n";
 }
@@ -103,9 +103,9 @@ std::ostream&		operator<<(std::ostream& os, const Bureaucrat& obj)
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	if (this == &other)
-		return (*this);
-	this->grade = other.grade;
+	if (this != &other)
+		this->grade = other.grade;
+	return (*this);
 }
 
 /////////////

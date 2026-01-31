@@ -42,7 +42,7 @@ class AForm
 								);
 		AForm					(const AForm& other);
 		AForm&					operator=(const AForm& other);
-		virtual ~AForm			() = 0;
+		virtual ~AForm();
 		void					execute(const Bureaucrat& executor) const;
 
 		class GradeTooHighException : public std::exception

@@ -6,21 +6,24 @@
 #    By: abosc <abosc@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/24 13:03:29 by abosc             #+#    #+#              #
-#    Updated: 2026/01/24 14:03:47 by abosc            ###   ########.fr        #
+#    Updated: 2026/01/31 19:53:22 by abosc            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-NAME = Form_28B
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+NAME = Intern
 
 OBJS_DIR = obj
 
 SRCS =	main.cpp					\
 		Bureaucrat.cpp				\
+		AForm.cpp					\
 		ShrubberyCreationForm.cpp	\
-		AForm.cpp
+		PresidentialPardonForm.cpp	\
+		RobotomyRequestForm.cpp		\
+		Intern.cpp
 		
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
