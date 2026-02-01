@@ -1,12 +1,11 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-NAME = converter
+NAME = serializer
 
 OBJS_DIR = obj
 
 SRCS =	main.cpp			\
-		checkType.cpp		\
-		ScalarConverter.cpp	\
+		Serializer.cpp		\
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 

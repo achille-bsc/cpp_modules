@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 18:25:20 by abosc             #+#    #+#             */
-/*   Updated: 2026/01/31 17:36:41 by abosc            ###   ########.fr       */
+/*   Updated: 2026/02/01 17:18:25 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,4 @@ class Bureaucrat
 std::ostream&		operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif
+
