@@ -5,43 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 17:04:39 by abosc             #+#    #+#             */
-/*   Updated: 2026/02/05 17:53:30 by abosc            ###   ########.fr       */
+/*   Created: 2026/02/05 15:36:37 by abosc             #+#    #+#             */
+/*   Updated: 2026/02/05 18:10:44 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Span.hpp"
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
-
-int main(void)
+int main()
 {
-	A a = A();
-	B b = B();
-	C c = C();
-
-	identify(&a);
-	identify(&b);
-	identify(&c);
+	Span sp = Span(5);
+	Span rdsp = Span(100000);
 	
-	std::cout << "-------------------\n";
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
 	
-	identify(a);
-	identify(b);
-	identify(c);
-
-	std::cout << "-------------------\n";
-
-	Base *b1 = generate();
-	Base *b2 = generate();
-
-	identify(b1);
-	identify(*b1);
-
-	delete(b1);
-	delete(b2);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	
+	rdsp.addRandomNumbers();
+	std::cout << rdsp.shortestSpan() << std::endl;
+	std::cout << rdsp.longestSpan() << std::endl;
+	
 	return (0);
 }
