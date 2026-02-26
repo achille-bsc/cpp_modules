@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:38:05 by abosc             #+#    #+#             */
-/*   Updated: 2026/02/25 16:19:19 by abosc            ###   ########.fr       */
+/*   Updated: 2026/02/26 03:24:55 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stack>
 
 template<typename T, typename Container = std::deque<T> >
-class MutantStack
+class MutantStack : public std::stack<T, Container>
 {
 	private:
 	public:
@@ -25,10 +25,13 @@ class MutantStack
 		MutantStack&	operator=		(const MutantStack& other);
 		
 		typedef typename Container::iterator iterator;
+		typedef typename Container::const_iterator const_iterator;
 
         iterator    begin(void);
         iterator    end(void);
-		
+
+		const_iterator begin(void) const;
+		const_iterator end(void) const;
 };
 
 #include "MutantStack.tpp"

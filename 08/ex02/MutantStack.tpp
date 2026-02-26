@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:38:11 by abosc             #+#    #+#             */
-/*   Updated: 2026/02/25 16:18:13 by abosc            ###   ########.fr       */
+/*   Updated: 2026/02/26 03:27:27 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ MutantStack<T, Container> &MutantStack<T, Container>::operator=(const MutantStac
   std::cout << "Copy assignment operator called!" << std::endl;
   if (this == &other)
     return (*this);
-  std::stack<T, Container>::operator=(this, other);
+  std::stack<T, Container>::operator=(other);
   return (*this);
 }
 
@@ -28,5 +28,15 @@ typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin() 
 
 template<typename T, typename Container>
 typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end() {
+  return this->c.end();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::begin() const {
+  return this->c.begin();
+}
+
+template<typename T, typename Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::end() const {
   return this->c.end();
 }

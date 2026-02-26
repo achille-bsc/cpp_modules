@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 14:39:53 by abosc             #+#    #+#             */
-/*   Updated: 2026/02/05 15:14:04 by abosc            ###   ########.fr       */
+/*   Updated: 2026/02/26 03:18:28 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class NovalueException : public std::exception
 };
 
 template <typename T>
-int	easyfind(T& lst, int val);
+int	easyfind(T lst, int val);
 
 #include "easyfind.tpp"
 

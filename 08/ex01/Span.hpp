@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 15:36:34 by abosc             #+#    #+#             */
-/*   Updated: 2026/02/05 18:05:43 by abosc            ###   ########.fr       */
+/*   Updated: 2026/02/26 03:18:14 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ class Span
 		void addNumber(int number);
 		int shortestSpan();
 		int longestSpan();
-		void addRandomNumbers();
+		void addRandomNumbers(int size);
+		void addNumbers(std::vector<int> numbers);
 };
 
 #endif

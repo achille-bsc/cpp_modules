@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 14:39:52 by abosc             #+#    #+#             */
-/*   Updated: 2026/02/05 15:31:02 by abosc            ###   ########.fr       */
+/*   Updated: 2026/02/26 03:09:01 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ const char *NovalueException::what() const throw()
 }
 
 template <typename T>
-int easyfind(T& lst, int val)
+int easyfind(T lst, int val)
 {
 	typename T::iterator it = find(lst.begin(), lst.end(), val);
 	

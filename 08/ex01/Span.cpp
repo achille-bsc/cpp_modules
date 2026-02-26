@@ -6,7 +6,7 @@
 /*   By: abosc <abosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 15:36:32 by abosc             #+#    #+#             */
-/*   Updated: 2026/02/05 18:09:42 by abosc            ###   ########.fr       */
+/*   Updated: 2026/02/26 03:18:16 by abosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,27 @@ int Span::longestSpan()
 	return (max - min);
 }
 
-void Span::addRandomNumbers()
+void Span::addRandomNumbers(int size)
 {
 	int i = 0;
 	
 	srand(time(0));
 	
-	while (i < 100000)
+	while (i < size)
 	{
-		addNumber(rand());
+		if (this->lst.size() == maxSize)
+			throw std::exception();
+		else
+			this->lst.push_back(rand());
 		srand(rand());
 		i++;
 	}
+}
+
+void Span::addNumbers(std::vector<int> numbers)
+{
+	if (this->lst.size() + numbers.size() > maxSize)
+		throw std::exception();
+	else
+		this->lst.insert(this->lst.end(), numbers.begin(), numbers.end());
 }
